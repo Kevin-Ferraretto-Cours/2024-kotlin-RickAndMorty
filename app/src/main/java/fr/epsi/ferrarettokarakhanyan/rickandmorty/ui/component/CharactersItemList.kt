@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material3.Card
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -21,36 +22,38 @@ import coil.compose.rememberAsyncImagePainter
 
 @Composable
 fun CharactersItemList(
-    modifier: Modifier = Modifier,
-    imageUrl: String,
-    characterName: String
+	modifier : Modifier = Modifier,imageUrl : String,characterName : String
 ) {
-    Row(
-        modifier = modifier
-            .fillMaxWidth()
-            .padding(16.dp),
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-        Image(
-            painter = rememberAsyncImagePainter(model = imageUrl),
-            contentDescription = null,
-            modifier = Modifier
-                .size(64.dp)
-                .clip(CircleShape)
-                .background(Color.Gray)
-        )
-        Spacer(modifier = Modifier.width(16.dp))
-        Text(
-            text = characterName
-        )
-    }
+	Card(onClick = {
+
+	}) {
+		Row(
+			modifier = modifier
+                .fillMaxWidth()
+                .padding(16.dp),
+			verticalAlignment = Alignment.CenterVertically
+		) {
+			Image(
+				painter = rememberAsyncImagePainter(model = imageUrl),
+				contentDescription = null,
+				modifier = Modifier
+                    .size(64.dp)
+                    .clip(CircleShape)
+                    .background(Color.Gray)
+			)
+			Spacer(modifier = Modifier.width(16.dp))
+			Text(
+				text = characterName
+			)
+		}
+	}
+
 }
 
 @Preview
 @Composable
 fun CharactersItemListPreview() {
-    CharactersItemList(
-        imageUrl = "",
-        characterName = "Nom du personnage"
-    )
+	CharactersItemList(
+		imageUrl = "",characterName = "Nom du personnage"
+	)
 }
