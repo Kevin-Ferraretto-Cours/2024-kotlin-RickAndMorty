@@ -3,7 +3,7 @@ package fr.epsi.ferrarettokarakhanyan.rickandmorty.data.network.model
 import com.google.gson.annotations.SerializedName
 
 data class Character(
-	@field:SerializedName("image") val image : String? = null,
+	@field:SerializedName("image") val image : String = String(),
 	@field:SerializedName("gender") val gender : String? = null,
 	@field:SerializedName("species") val species : String? = null,
 	@field:SerializedName("created") val created : String? = null,
