@@ -13,7 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import fr.epsi.ferrarettokarakhanyan.rickandmorty.ui.theme.RickAndMortyTheme
 
-class MainActivity : ComponentActivity() {
+class CharactersListActivity : ComponentActivity() {
 	override fun onCreate(savedInstanceState : Bundle?) {
 		super.onCreate(savedInstanceState)
 		enableEdgeToEdge()
