@@ -1,5 +1,6 @@
 package fr.epsi.ferrarettokarakhanyan.rickandmorty.ui.viewmodel
 
+import android.net.Uri
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import fr.epsi.ferrarettokarakhanyan.rickandmorty.data.network.RickAndMortyApiService
@@ -48,6 +49,15 @@ class CharactersListViewModel : ViewModel() {
 					}
 				}
 			})
+		}
+	}
+
+	fun addCharacterToList() {
+		viewModelScope.launch {
+			val urlString = charactersData.value.characterResult.info?.next ?: return@launch
+			val uri = Uri.parse(urlString)
+			val page = uri.getQueryParameter("page")?.toIntOrNull() ?: 0
+			getCharacters(page)
 		}
 	}
 }
