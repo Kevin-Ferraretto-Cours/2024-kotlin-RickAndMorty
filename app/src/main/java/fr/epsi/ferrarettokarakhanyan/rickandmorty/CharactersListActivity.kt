@@ -7,10 +7,9 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import fr.epsi.ferrarettokarakhanyan.rickandmorty.data.network.model.Character
+import fr.epsi.ferrarettokarakhanyan.rickandmorty.ui.component.CharactersList
 import fr.epsi.ferrarettokarakhanyan.rickandmorty.ui.component.topbar.TopBarCharactersList
 import fr.epsi.ferrarettokarakhanyan.rickandmorty.ui.theme.RickAndMortyTheme
 
@@ -20,29 +19,28 @@ class CharactersListActivity : ComponentActivity() {
 		enableEdgeToEdge()
 		setContent {
 			RickAndMortyTheme {
+				// Création de quelques objets Character
+				val character1 = Character(
+					name = "John Doe",
+					id = 1,
+				)
+
+				val character2 = Character(
+					name = "Jane Smith",
+					id = 2,
+				)
+
+				// Création d'une liste contenant ces personnages
+				val charactersList : List<Character> = listOf(character1,character2)
 				Scaffold(
 					topBar = { TopBarCharactersList() },modifier = Modifier.fillMaxSize()
 				) { innerPadding ->
-					Greeting(
-						name = "Android",modifier = Modifier.padding(innerPadding)
+					CharactersList(
+						modifier = Modifier.padding(innerPadding),list = charactersList
 					)
+
 				}
 			}
 		}
-	}
-}
-
-@Composable
-fun Greeting(name : String,modifier : Modifier = Modifier) {
-	Text(
-		text = "Hello $name!",modifier = modifier
-	)
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-	RickAndMortyTheme {
-		Greeting("Android")
 	}
 }
