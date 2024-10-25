@@ -1,7 +1,10 @@
 package fr.epsi.ferrarettokarakhanyan.rickandmorty.data.network.model
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class Character(
 	@field:SerializedName("image") val image : String = String(),
 	@field:SerializedName("gender") val gender : String? = null,
@@ -15,4 +18,4 @@ data class Character(
 	@field:SerializedName("type") val type : String? = null,
 	@field:SerializedName("url") val url : String? = null,
 	@field:SerializedName("status") val status : String? = null
-)
+) : Parcelable

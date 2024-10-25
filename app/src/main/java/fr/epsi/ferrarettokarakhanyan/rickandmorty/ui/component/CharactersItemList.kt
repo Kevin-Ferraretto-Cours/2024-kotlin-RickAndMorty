@@ -1,6 +1,6 @@
 package fr.epsi.ferrarettokarakhanyan.rickandmorty.ui.component
 
-import androidx.compose.foundation.Image
+import android.content.Intent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -16,9 +16,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import coil.compose.rememberAsyncImagePainter
+import coil.compose.AsyncImage
+import fr.epsi.ferrarettokarakhanyan.rickandmorty.CharactersDetailActivity
 import fr.epsi.ferrarettokarakhanyan.rickandmorty.data.network.model.Character
 import fr.epsi.ferrarettokarakhanyan.rickandmorty.ui.viewmodel.CharactersDetailViewModel
 
@@ -28,8 +30,12 @@ fun CharactersItemList(
 	character : Character,
 	charactersDetailViewModel : CharactersDetailViewModel
 ) {
+	val context = LocalContext.current
 	Card(onClick = {
 		charactersDetailViewModel.setCharacter(character)
+		val intent = Intent(context,CharactersDetailActivity::class.java)
+//		intent.putExtra(name = "character",value = character as Parcelable)
+		context.startActivity(intent)
 	}) {
 		Row(
 			modifier = modifier
@@ -37,8 +43,8 @@ fun CharactersItemList(
 				.padding(16.dp),
 			verticalAlignment = Alignment.CenterVertically
 		) {
-			Image(
-				painter = rememberAsyncImagePainter(model = character.image),
+			AsyncImage(
+				model = character.image,
 				contentDescription = null,
 				modifier = Modifier
 					.size(64.dp)

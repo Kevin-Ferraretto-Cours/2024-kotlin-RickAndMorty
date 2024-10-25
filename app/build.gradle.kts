@@ -2,6 +2,7 @@ plugins {
 	alias(libs.plugins.android.application)
 	alias(libs.plugins.kotlin.android)
 	alias(libs.plugins.kotlin.compose)
+	id("kotlin-parcelize")
 }
 
 android {
@@ -56,6 +57,9 @@ dependencies {
 	//gson
 	implementation(libs.gson)
 	implementation(libs.converter.gson)
+	implementation(libs.androidx.appcompat)
+	implementation(libs.material)
+	implementation(libs.androidx.activity)
 
 	testImplementation(libs.junit)
 	androidTestImplementation(libs.androidx.junit)
