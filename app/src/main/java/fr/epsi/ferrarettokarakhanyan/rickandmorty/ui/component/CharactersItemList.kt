@@ -19,31 +19,35 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
+import fr.epsi.ferrarettokarakhanyan.rickandmorty.data.network.model.Character
+import fr.epsi.ferrarettokarakhanyan.rickandmorty.ui.viewmodel.CharactersDetailViewModel
 
 @Composable
 fun CharactersItemList(
-	modifier : Modifier = Modifier,imageUrl : String,characterName : String
+	modifier : Modifier = Modifier,
+	character : Character,
+	charactersDetailViewModel : CharactersDetailViewModel
 ) {
 	Card(onClick = {
-
+		charactersDetailViewModel.setCharacter(character)
 	}) {
 		Row(
 			modifier = modifier
-                .fillMaxWidth()
-                .padding(16.dp),
+				.fillMaxWidth()
+				.padding(16.dp),
 			verticalAlignment = Alignment.CenterVertically
 		) {
 			Image(
-				painter = rememberAsyncImagePainter(model = imageUrl),
+				painter = rememberAsyncImagePainter(model = character.image),
 				contentDescription = null,
 				modifier = Modifier
-                    .size(64.dp)
-                    .clip(CircleShape)
-                    .background(Color.Gray)
+					.size(64.dp)
+					.clip(CircleShape)
+					.background(Color.Gray)
 			)
 			Spacer(modifier = Modifier.width(16.dp))
 			Text(
-				text = characterName
+				text = character.name
 			)
 		}
 	}
@@ -53,7 +57,11 @@ fun CharactersItemList(
 @Preview
 @Composable
 fun CharactersItemListPreview() {
+	val character = Character(
+		id = 0,name = "Nom du personnage",image = ""
+	)
+	val charactersDetailViewModel = CharactersDetailViewModel()
 	CharactersItemList(
-		imageUrl = "",characterName = "Nom du personnage"
+		character = character,charactersDetailViewModel = charactersDetailViewModel
 	)
 }
