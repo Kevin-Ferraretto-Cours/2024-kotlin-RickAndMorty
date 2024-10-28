@@ -1,7 +1,7 @@
 [versions]
 agp = "8.7.1"
-converterGson = "2.9.0"
-gson = "2.10.1"
+converterGson = "2.11.0"
+gson = "2.11.0"
 kotlin = "2.0.0"
 coreKtx = "1.13.1"
 junit = "4.13.2"
@@ -11,14 +11,15 @@ lifecycleRuntimeKtx = "2.8.6"
 activityCompose = "1.9.3"
 composeBom = "2024.10.00"
 retrofit = "2.11.0"
-coil = "2.2.2"
-appcompat = "1.6.1"
-material = "1.10.0"
+coil = "2.7.0"
+appcompat = "1.7.0"
+material = "1.12.0"
 activity = "1.9.3"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
-androidx-lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose" }
+androidx-lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version = "2.8.6" }
+androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version = "2.8.3" }
 converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "converterGson" }
 gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }

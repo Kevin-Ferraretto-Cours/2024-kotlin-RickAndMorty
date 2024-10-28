@@ -7,6 +7,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.navigation.NavController
 import fr.epsi.ferrarettokarakhanyan.rickandmorty.ui.viewmodel.CharactersDetailViewModel
 import fr.epsi.ferrarettokarakhanyan.rickandmorty.ui.viewmodel.CharactersListViewModel
 
@@ -14,7 +15,8 @@ import fr.epsi.ferrarettokarakhanyan.rickandmorty.ui.viewmodel.CharactersListVie
 fun CharactersList(
 	modifier : Modifier = Modifier,
 	charactersListViewModel : CharactersListViewModel,
-	charactersDetailViewModel : CharactersDetailViewModel
+	charactersDetailViewModel : CharactersDetailViewModel,
+	navController : NavController
 ) {
 	val agentsData by charactersListViewModel.charactersData.collectAsState()
 	LazyColumn(modifier = modifier) {
@@ -22,7 +24,8 @@ fun CharactersList(
 		items(count = agentsData.characters.size) { index ->
 			CharactersItemList(
 				character = agentsData.characters[index],
-				charactersDetailViewModel = charactersDetailViewModel
+				charactersDetailViewModel = charactersDetailViewModel,
+				navController = navController
 			)
 
 			if (index == (agentsData.characters.size - 5)) {

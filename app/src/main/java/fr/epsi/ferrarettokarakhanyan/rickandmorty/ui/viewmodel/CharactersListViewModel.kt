@@ -18,7 +18,8 @@ class CharactersListViewModel : ViewModel() {
 
 	data class UiState(
 		var characterResult : CharacterResult = CharacterResult(),
-		var characters : List<Character> = ArrayList()
+		var characters : List<Character> = ArrayList(),
+		var failed : Boolean = false
 	)
 
 	// Expose screen UI state
@@ -47,6 +48,12 @@ class CharactersListViewModel : ViewModel() {
 							copy(characters = characterOrder)
 						}
 					}
+				}
+			},onFailure = {
+				updateState {
+					copy(
+						failed = true
+					)
 				}
 			})
 		}

@@ -57,10 +57,12 @@ dependencies {
 	//gson
 	implementation(libs.gson)
 	implementation(libs.converter.gson)
+	//navigation
+	implementation(libs.androidx.navigation.compose)
+
 	implementation(libs.androidx.appcompat)
 	implementation(libs.material)
 	implementation(libs.androidx.activity)
-
 	testImplementation(libs.junit)
 	androidTestImplementation(libs.androidx.junit)
 	androidTestImplementation(libs.androidx.espresso.core)
