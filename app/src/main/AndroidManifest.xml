@@ -15,9 +15,6 @@
         android:theme="@style/Theme.RickAndMorty"
         tools:targetApi="31">
         <activity
-            android:name=".CharactersDetailActivity"
-            android:exported="false" />
-        <activity
             android:name=".CharactersListActivity"
             android:exported="true"
             android:theme="@style/Theme.RickAndMorty">
