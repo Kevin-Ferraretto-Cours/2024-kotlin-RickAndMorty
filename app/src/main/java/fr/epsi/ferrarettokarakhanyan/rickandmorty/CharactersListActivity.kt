@@ -1,5 +1,6 @@
 package fr.epsi.ferrarettokarakhanyan.rickandmorty
 
+import CharactersDetail
 import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -16,7 +17,6 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import fr.epsi.ferrarettokarakhanyan.rickandmorty.ui.component.CharactersDetail
 import fr.epsi.ferrarettokarakhanyan.rickandmorty.ui.component.CharactersList
 import fr.epsi.ferrarettokarakhanyan.rickandmorty.ui.component.topbar.TopBarCharactersDetail
 import fr.epsi.ferrarettokarakhanyan.rickandmorty.ui.component.topbar.TopBarCharactersList
