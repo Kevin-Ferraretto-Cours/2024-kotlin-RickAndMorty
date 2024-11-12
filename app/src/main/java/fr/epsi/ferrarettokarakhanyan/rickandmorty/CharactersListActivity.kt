@@ -16,6 +16,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import fr.epsi.ferrarettokarakhanyan.rickandmorty.ui.component.CharactersDetail
 import fr.epsi.ferrarettokarakhanyan.rickandmorty.ui.component.CharactersList
 import fr.epsi.ferrarettokarakhanyan.rickandmorty.ui.component.topbar.TopBarCharactersDetail
 import fr.epsi.ferrarettokarakhanyan.rickandmorty.ui.component.topbar.TopBarCharactersList
@@ -70,8 +71,9 @@ class CharactersListActivity : ComponentActivity() {
 								}
 							},modifier = Modifier.fillMaxSize()
 						) { innerPadding ->
-							Text(
-								text = "test",modifier = Modifier.padding(innerPadding)
+							CharactersDetail(
+								character = charactersDetailViewModel.character,
+								modifier = Modifier.padding(innerPadding)
 							)
 						}
 					}
