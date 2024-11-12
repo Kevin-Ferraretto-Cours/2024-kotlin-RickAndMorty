@@ -32,7 +32,7 @@ fun CharactersItemList(
 	Card(onClick = {
 		charactersDetailViewModel.setCharacter(character)
 		navController.navigate(Detail.route)
-	}) {
+	},modifier = modifier.padding(bottom = 4.dp)) {
 		Row(
 			modifier = modifier
 				.fillMaxWidth()
